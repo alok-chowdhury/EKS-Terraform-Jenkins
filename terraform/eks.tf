@@ -23,8 +23,8 @@ module "eks" {
 
   # EKS Managed Node Group(s)
   eks_managed_node_group_defaults = {
-    ami_type       = "Amazon Linux 2023 AMI 2023.4.20240528.0 x86_64 HVM kernel-6.1"
-    instance_types = ["t2.micro"]
+    ami_type       = "AL2_x86_64"
+    instance_types = ["m5.large"]
 
     attach_cluster_primary_security_group = true
   }
@@ -35,7 +35,7 @@ module "eks" {
       max_size     = 2
       desired_size = 1
 
-      instance_types = ["t2.micro"]
+      instance_types = ["t3.large"]
       capacity_type  = "SPOT"
 
       tags = {
